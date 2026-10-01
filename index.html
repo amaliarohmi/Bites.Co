@@ -1,32 +1,443 @@
-1. TEMA & DESAIN VISUAL:
-- Gaya visual: Estetik, kawaii/lucu, menggunakan palet warna pastel (soft pink, peach, mint, cream, ungu lavender) dengan font yang ramah dan membulat (rounded typography).
-- Terinspirasi dari gambar produk camilan toples transparan yang estetik dan foto produk lumpia mini (isi pisang, ubi, dan mix). Gunakan placeholder atau gambar referensi makanan tersebut untuk card produk.
-- Navigasi bawah (Bottom Navigation) bergaya aplikasi modern dengan menu: Beranda, Toko/Produk, Keranjang, Pesanan, dan Akun.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bites Co - Lumpia Mini Bites Estetik</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fffaf5;
+            color: #4a3b32;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF5EE] min-h-screen flex justify-center items-center pb-20">
 
-2. HALAMAN UTAMA (BERANDA):
-- Banner/Hero section yang playful dengan sambutan hangat dari "Bites Co" dan tombol "Pesan Sekarang".
-- Feed/Story section bergaya media sosial (seperti TikTok/Instagram Reels) yang menampilkan video/foto estetik produk Lumpia Bites dengan tombol Suka (Like), Komentar, dan Bagikan (Share).
-- Quick highlight 3 produk unggulan.
+    <!-- Container Utama (Ukuran Tampilan Mobile/Responsive) -->
+    <div id="app" class="w-full max-w-md bg-white min-h-screen shadow-2xl relative flex flex-col overflow-hidden">
+        
+        <!-- HEADER -->
+        <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3 border-b border-pink-100 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🥟✨</span>
+                <h1 class="font-bold text-xl text-pink-600 tracking-wide">Bites Co.</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span id="role-badge" class="text-xs px-2.5 py-1 bg-pink-100 text-pink-700 font-bold rounded-full">Mode: Pembeli</span>
+            </div>
+        </header>
 
-3. KATALOG PRODUK (3 VARIAN):
-Terdapat 3 produk utama dengan deskripsi dan harga masing-masing:
-   a. Lumpia Pisang Bites (Lumpia mini krispi isi pisang manis legit dengan taburan golden dust/gula halus) - Rp 25.000
-   b. Lumpia Ubi Bites (Lumpia mini isi ubi ungu lembut dan legit) - Rp 25.000
-   c. Lumpia Mix Bites (Kombinasi spesial isi pisang dan ubi ungu dalam satu toples transparan estetik) - Rp 30.000
+        <!-- KONTEN UTAMA (DIPINDAH DINAMIS) -->
+        <main id="main-content" class="flex-1 overflow-y-auto pb-16">
+            <!-- Konten dimuat oleh JavaScript -->
+        </main>
 
-4. FITUR KERANJANG & PEMESANAN (CHECKOUT):
-- Pengguna dapat menambah/mengurangi jumlah produk ke keranjang.
-- Halaman Keranjang menampilkan ringkasan belanja dan total harga.
-- Tombol Checkout yang langsung mengarahkan/mengirim pesan otomatis (Order Form) ke WhatsApp Bisnis (No: +6281234567890) dan tautan ke akun Instagram (@bitesco.official).
-- Halaman "Pesanan" untuk melacak status pesanan pembeli (Menunggu Konfirmasi, Diproses, Dikirim, Selesai).
+        <!-- BOTTOM NAVIGATION (NAVIGASI BAWAH) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-pink-100 py-2 px-4 flex justify-around items-center z-45 shadow-lg">
+            <button onclick="switchTab('beranda')" class="nav-btn flex flex-col items-center text-pink-600" data-target="beranda">
+                <i data-lucide="home" class="w-6 h-6"></i>
+                <span class="text-[10px] font-bold mt-1">Beranda</span>
+            </button>
+            <button onclick="switchTab('produk')" class="nav-btn flex flex-col items-center text-gray-400" data-target="produk">
+                <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                <span class="text-[10px] font-medium mt-1">Produk</span>
+            </button>
+            <button onclick="switchTab('keranjang')" class="nav-btn flex flex-col items-center text-gray-400 relative" data-target="keranjang">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-2 bg-pink-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                <span class="text-[10px] font-medium mt-1">Keranjang</span>
+            </button>
+            <button onclick="switchTab('pesanan')" class="nav-btn flex flex-col items-center text-gray-400" data-target="pesanan">
+                <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                <span class="text-[10px] font-medium mt-1">Pesanan</span>
+            </button>
+            <button onclick="switchTab('akun')" class="nav-btn flex flex-col items-center text-gray-400" data-target="akun">
+                <i data-lucide="user" class="w-6 h-6"></i>
+                <span class="text-[10px] font-medium mt-1">Akun</span>
+            </button>
+        </nav>
 
-5. SISTEM AKUN & HAK AKSES BERBEDA (PEMBELI vs PENJUAL):
-- Halaman Akun memiliki opsi Login / Ganti Peran (Role Switcher) yang jelas antara:
-   * Tampilan Pembeli: Fokus pada riwayat belanja, wishlist, status pesanan, dan profil pelanggan.
-   * Tampilan Penjual (Admin Store): Tersembunyi secara default dan hanya bisa diakses melalui login khusus penjual. Tampilan penjual berisi:
-     - Dashboard Kelola Produk (Tambah/Edit/Hapus produk Pisang, Ubi, Mix).
-     - Daftar Pesanan Masuk dari pembeli yang bisa diubah statusnya (Terima, Proses, Selesai).
-     - Rekap Penjualan harian/bulanan sederhana.
+    </div>
 
-6. TEKNIS & INTERAKSI:
-- Dibangun menggunakan HTML, CSS (TailwindCSS), dan JavaScript vanilla agar responsif, cepat, dapat di-deploy dengan mudah, dan bisa langsung dibagikan (shareable link) untuk melakukan pemesanan nyata.
+    <!-- SCRIPT APLIKASI -->
+    <script>
+        // --- DATA PRODUK & APLIKASI ---
+        let currentTab = 'beranda';
+        let userRole = 'pembeli'; // 'pembeli' atau 'penjual'
+
+        let products = [
+            {
+                id: 1,
+                name: "Lumpia Pisang Bites",
+                category: "Pisang",
+                price: 25000,
+                desc: "Lumpia mini krispi dengan isian pisang manis legit berpadu lumeran cokelat/karamel di dalam toples estetik.",
+                image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80",
+                badge: "Best Seller ✨"
+            },
+            {
+                id: 2,
+                name: "Lumpia Ubi Bites",
+                category: "Ubi",
+                price: 25000,
+                desc: "Lumpia mini renyah dengan isian ubi ungu lembut, manis alami, dan sangat menggugah selera.",
+                image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80",
+                badge: "Favorite 🍠"
+            },
+            {
+                id: 3,
+                name: "Lumpia Mix Bites",
+                category: "Mix",
+                price: 30000,
+                desc: "Paket spesial toples transparan isi kombinasi Lumpia Pisang dan Ubi Ungu sekaligus dalam satu kemasan!",
+                image: "https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=600&q=80",
+                badge: "Paling Hemat 🔥"
+            }
+        ];
+
+        let cart = [];
+        let orders = [
+            { id: "ORD-001", customer: "Budi Santoso", items: "Lumpia Mix Bites (2)", total: 60000, status: "Diproses" }
+        ];
+
+        const whatsappNumber = "6281234567890"; // Ganti dengan nomor WA Bisnis kamu
+        const instagramUsername = "bitesco.official"; // Ganti dengan IG kamu
+
+        // --- INISIALISASI ---
+        function initApp() {
+            renderContent();
+            lucide.createIcons();
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update active state nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.getAttribute('data-target') === tab) {
+                    btn.classList.remove('text-gray-400');
+                    btn.classList.add('text-pink-600');
+                } else {
+                    btn.classList.remove('text-pink-600');
+                    btn.classList.add('text-gray-400');
+                }
+            });
+
+            renderContent();
+            lucide.createIcons();
+        }
+
+        // --- RENDER KONTEN BERDASARKAN TAB & ROLE ---
+        function renderContent() {
+            const container = document.getElementById('main-content');
+            
+            // Update Role Badge Header
+            const roleBadge = document.getElementById('role-badge');
+            if(userRole === 'penjual') {
+                roleBadge.innerText = "Mode: Penjual (Admin)";
+                roleBadge.className = "text-xs px-2.5 py-1 bg-purple-100 text-purple-700 font-bold rounded-full";
+            } else {
+                roleBadge.innerText = "Mode: Pembeli";
+                roleBadge.className = "text-xs px-2.5 py-1 bg-pink-100 text-pink-700 font-bold rounded-full";
+            }
+
+            if (currentTab === 'beranda') {
+                container.innerHTML = renderBeranda();
+            } else if (currentTab === 'produk') {
+                container.innerHTML = renderProduk();
+            } else if (currentTab === 'keranjang') {
+                container.innerHTML = renderKeranjang();
+            } else if (currentTab === 'pesanan') {
+                container.innerHTML = renderPesanan();
+            } else if (currentTab === 'akun') {
+                container.innerHTML = renderAkun();
+            }
+        }
+
+        // --- 1. HALAMAN BERANDA ---
+        function renderBeranda() {
+            return `
+                <div class="p-4 space-y-6">
+                    <!-- Banner Lucu -->
+                    <div class="bg-gradient-to-r from-pink-400 to-peach-400 rounded-2xl p-5 text-white shadow-md relative overflow-hidden flex items-center justify-between">
+                        <div class="space-y-2 z-10">
+                            <span class="bg-white/30 text-xs px-2.5 py-1 rounded-full font-bold">✨ Cokelat & Manisnya Pas!</span>
+                            <h2 class="text-2xl font-bold">Lumpia Mini Bites</h2>
+                            <p class="text-xs text-white/90">Camilan renyah berbentuk toples cantik yang bikin ketagihan di setiap gigitan.</p>
+                            <button onclick="switchTab('produk')" class="mt-2 bg-white text-pink-600 text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-pink-50 transition">
+                                Belanja Sekarang 🛒
+                            </button>
+                        </div>
+                        <div class="text-6xl z-10">🥟</div>
+                    </div>
+
+                    <!-- Kontak Cepat (WA & IG) -->
+                    <div class="bg-pink-50 rounded-xl p-4 border border-pink-100 flex justify-around items-center">
+                        <a href="https://wa.me/${whatsappNumber}?text=Halo%20Bites%20Co,%20saya%20mau%20pesan%20lumpia%20bites!" target="_blank" class="flex items-center space-x-2 text-green-700 font-bold text-xs bg-white px-3 py-2 rounded-lg shadow-sm">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-green-600"></i>
+                            <span>WhatsApp Kami</span>
+                        </a>
+                        <a href="https://instagram.com/${instagramUsername}" target="_blank" class="flex items-center space-x-2 text-pink-700 font-bold text-xs bg-white px-3 py-2 rounded-lg shadow-sm">
+                            <i data-lucide="instagram" class="w-4 h-4 text-pink-600"></i>
+                            <span>@${instagramUsername}</span>
+                        </a>
+                    </div>
+
+                    <!-- Produk Unggulan -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-gray-800 text-base">Menu Pavorit Bites Co. 🌟</h3>
+                            <button onclick="switchTab('produk')" class="text-xs text-pink-600 font-bold">Lihat Semua</button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            ${products.map(p => `
+                                <div class="bg-white rounded-xl p-3 border border-pink-100 shadow-sm flex flex-col justify-between">
+                                    <img src="${p.image}" class="w-full h-28 object-cover rounded-lg mb-2" alt="${p.name}">
+                                    <div>
+                                        <span class="text-[10px] bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full font-bold">${p.badge}</span>
+                                        <h4 class="font-bold text-sm mt-1 text-gray-800">${p.name}</h4>
+                                        <p class="text-xs text-pink-600 font-bold mt-1">Rp ${p.price.toLocaleString('id-ID')}</p>
+                                    </div>
+                                    <button onclick="addToCart(${p.id})" class="mt-3 w-full bg-pink-500 text-white text-xs font-bold py-1.5 rounded-lg hover:bg-pink-600 transition">
+                                        + Keranjang
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 2. HALAMAN PRODUK ---
+        function renderProduk() {
+            return `
+                <div class="p-4 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold text-lg text-gray-800">Katalog Menu Bites Co. 🥟</h2>
+                        ${userRole === 'penjual' ? '<button onclick="alert(\'Fitur tambah produk admin aktif!\')" class="text-xs bg-purple-600 text-white px-3 py-1.5 rounded-lg font-bold">+ Tambah Produk</button>' : ''}
+                    </div>
+
+                    <div class="space-y-3">
+                        ${products.map(p => `
+                            <div class="bg-white rounded-2xl p-3 border border-pink-100 shadow-sm flex space-x-3 items-center">
+                                <img src="${p.image}" class="w-24 h-24 object-cover rounded-xl flex-shrink-0" alt="${p.name}">
+                                <div class="flex-1">
+                                    <span class="text-[10px] bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full font-bold">${p.badge}</span>
+                                    <h3 class="font-bold text-sm text-gray-800 mt-1">${p.name}</h3>
+                                    <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">${p.desc}</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="font-bold text-pink-600 text-sm">Rp ${p.price.toLocaleString('id-ID')}</span>
+                                        <button onclick="addToCart(${p.id})" class="bg-pink-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-pink-600">
+                                            Beli
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 3. HALAMAN KERANJANG ---
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCartBadge();
+            alert(`Berhasil menambahkan ${product.name} ke keranjang! 🛒`);
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function renderKeranjang() {
+            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            return `
+                <div class="p-4 space-y-4">
+                    <h2 class="font-bold text-lg text-gray-800">Keranjang Belanja 🛒</h2>
+                    
+                    ${cart.length === 0 ? `
+                        <div class="text-center py-16 space-y-3">
+                            <span class="text-5xl">🛍️</span>
+                            <p class="text-sm text-gray-500">Keranjang kamu masih kosong nih!</p>
+                            <button onclick="switchTab('produk')" class="bg-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full">Mulai Belanja</button>
+                        </div>
+                    ` : `
+                        <div class="space-y-3">
+                            ${cart.map((item, index) => `
+                                <div class="bg-white rounded-xl p-3 border border-pink-100 shadow-sm flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-bold text-sm text-gray-800">${item.name}</h4>
+                                        <p class="text-xs text-pink-600 font-bold">Rp ${item.price.toLocaleString('id-ID')} x ${item.qty}</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-gray-100 rounded-full font-bold text-xs">-</button>
+                                        <span class="text-xs font-bold">${item.qty}</span>
+                                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full font-bold text-xs">+</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+
+                            <div class="bg-pink-50 p-4 rounded-xl border border-pink-100 space-y-2 mt-4">
+                                <div class="flex justify-between text-sm font-bold text-gray-700">
+                                    <span>Total Pembayaran:</span>
+                                    <span class="text-pink-600">Rp ${total.toLocaleString('id-ID')}</span>
+                                </div>
+                                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-2 shadow hover:bg-green-700">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                    <span>Checkout via WhatsApp</span>
+                                </button>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `;
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartBadge();
+            renderContent();
+            lucide.createIcons();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return;
+            let message = "Halo Bites Co, saya ingin memesan:\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.qty}x) @ Rp ${item.price}\n`;
+                total += item.price * item.qty;
+            });
+            message += `\nTotal: Rp ${total.toLocaleString('id-ID')}\nMohon proses pesanan saya ya, terima kasih!`;
+            
+            let encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, '_blank');
+        }
+
+        // --- 4. HALAMAN PESANAN ---
+        function renderPesanan() {
+            return `
+                <div class="p-4 space-y-4">
+                    <h2 class="font-bold text-lg text-gray-800">Daftar Pesanan 📋</h2>
+                    
+                    ${userRole === 'penjual' ? `
+                        <div class="bg-purple-50 p-3 rounded-xl border border-purple-200 mb-3">
+                            <span class="text-xs font-bold text-purple-700">👑 Tampilan Penjual:</span>
+                            <p class="text-[11px] text-purple-600">Kelola pesanan masuk dari pembeli di bawah ini.</p>
+                        </div>
+                    ` : ''}
+
+                    <div class="space-y-3">
+                        ${orders.map(o => `
+                            <div class="bg-white rounded-xl p-4 border border-pink-100 shadow-sm space-y-2">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="font-bold text-gray-500">${o.id}</span>
+                                    <span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-bold">${o.status}</span>
+                                </div>
+                                <h4 class="font-bold text-sm text-gray-800">${o.customer}</h4>
+                                <p class="text-xs text-gray-600">${o.items}</p>
+                                <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                                    <span class="font-bold text-pink-600 text-xs">Rp ${o.total.toLocaleString('id-ID')}</span>${userRole === 'penjual' ? `
+                                        <button onclick="alert('Status pesanan diperbarui!')" class="bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-lg">Ubah Status</button>
+                                    ` : `
+                                        <span class="text-[11px] text-green-600 font-bold">Sedang Disiapkan ✨</span>
+                                    `}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 5. HALAMAN AKUN (PEMILIH PERAN PEMBELI vs PENJUAL) ---
+        function renderAkun() {
+            return `
+                <div class="p-4 space-y-4">
+                    <h2 class="font-bold text-lg text-gray-800">Profil & Akun Pengguna 👤</h2>
+
+                    <div class="bg-pink-50 p-4 rounded-2xl border border-pink-100 flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            ${userRole === 'penjual' ? '👑' : '🛍️'}
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-800">${userRole === 'penjual' ? 'Admin Bites Co.' : 'Sobat Bites (Pembeli)'}</h3>
+                            <p class="text-xs text-gray-500">${userRole === 'penjual' ? 'Akses Kontrol Toko & Produk' : 'Pelanggan Setia Bites Co.'}</p>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Ganti Peran (Pembeli / Penjual) -->
+                    <div class="bg-white p-4 rounded-2xl border border-pink-100 space-y-3 shadow-sm">
+                        <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider">Pilih Mode Akun</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="setRole('pembeli')" class="py-2.5 rounded-xl text-xs font-bold border transition ${userRole === 'pembeli' ? 'bg-pink-500 text-white border-pink-500 shadow' : 'bg-gray-50 text-gray-600 border-gray-200'}">
+                                🛍️ Mode Pembeli
+                            </button>
+                            <button onclick="setRole('penjual')" class="py-2.5 rounded-xl text-xs font-bold border transition ${userRole === 'penjual' ? 'bg-purple-600 text-white border-purple-600 shadow' : 'bg-gray-50 text-gray-600 border-gray-200'}">
+                                👑 Mode Penjual
+                            </button>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">Catatan: Mode penjual menyembunyikan opsi pembelian dan membuka dasbor admin toko.</p>
+                    </div>
+
+                    <!-- Kontak Toko -->
+                    <div class="bg-white p-4 rounded-2xl border border-pink-100 space-y-3 shadow-sm">
+                        <h4 class="font-bold text-xs text-gray-700 uppercase tracking-wider">Hubungi Kami</h4>
+                        <a href="https://wa.me/${whatsappNumber}" target="_blank" class="flex items-center justify-between text-xs font-bold text-green-700 bg-green-50 p-3 rounded-xl">
+                            <span class="flex items-center space-x-2"><i data-lucide="phone" class="w-4 h-4"></i><span>WhatsApp Bisnis</span></span>
+                            <span>Chat</span>
+                        </a>
+                        <a href="https://instagram.com/${instagramUsername}" target="_blank" class="flex items-center justify-between text-xs font-bold text-pink-700 bg-pink-50 p-3 rounded-xl">
+                            <span class="flex items-center space-x-2"><i data-lucide="instagram" class="w-4 h-4"></i><span>Instagram Official</span></span>
+                            <span>Follow</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setRole(role) {
+            userRole = role;
+            renderContent();
+            lucide.createIcons();
+            alert(`Berhasil beralih ke Mode ${role === 'penjual' ? 'Penjual (Admin)' : 'Pembeli'}! ✨`);
+        }
+
+        // Jalankan aplikasi pertama kali
+        initApp();
+    </script>
+</body>
+</html>
