@@ -97,17 +97,16 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Floating Toast Notification -->
+    <!-- Toast Notification Box -->
     <div id="toast" class="fixed bottom-24 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-stone-800 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
         <i id="toast-icon" class="fa-solid fa-circle-check text-green-400 text-lg"></i>
         <span id="toast-msg">Berhasil!</span>
     </div>
 
-    <!-- Main Container -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
+        <!-- HOME TAB -->
         <section id="tab-home" class="space-y-12">
-            <!-- Hero Section -->
             <div class="relative bg-gradient-to-r from-pastelCream via-[#FFF0DB] to-pastelPeach rounded-3xl p-8 sm:p-12 shadow-md overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-orange-100">
                 <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-pastelYellow/40 rounded-full blur-2xl pointer-events-none"></div>
                 <div class="z-10 max-w-xl space-y-4 text-center md:text-left">
@@ -118,7 +117,7 @@
                         Camilan Seru <br>Lumpia Mini Bites 🥟
                     </h1>
                     <p class="text-stone-600 text-base sm:text-lg">
-                        Nikmati kelezatan lumpia mini bites buatan rumah dengan isian lumer di mulut. Pilihan rasa Pisang, Ubi, dan Mix Varian Favorit seharga Rp 7.000!
+                        Nikmati kelezatan lumpia mini bites buatan rumah dengan isian lumer di mulut. Pilihan rasa Pisang, Ubi, dan Mix Varian Favorit seharga Rp 7.000 per produk!
                     </p>
                     <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
                         <button onclick="switchTab('products')" class="bg-pastelBrown hover:bg-[#854B54] text-white px-8 py-3.5 rounded-full font-bold shadow-lg transform hover:-translate-y-0.5 transition-all flex items-center gap-2">
@@ -133,13 +132,13 @@
                     <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white">
                         <img src="image_935716.jpg" alt="Lumpia Ubi Bites" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/FFF5E4/A0616A?text=Bites+Co'">
                         <div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-pastelBrown shadow">
-                            Rp 7.000 / porsi
+                            Rp 7.000 / produk
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Banner Highlight Keunggulan -->
+            <!-- Features Highlights -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex items-center gap-4">
                     <div class="w-12 h-12 rounded-xl bg-pastelPeach/50 flex items-center justify-center text-pastelBrown text-xl">
@@ -170,23 +169,21 @@
                 </div>
             </div>
 
-            <!-- Produk Unggulan Preview -->
+            <!-- Featured Products Grid -->
             <div class="space-y-6">
                 <div class="flex justify-between items-end">
                     <div>
-                        <span class="text-xs font-bold text-orange-500 tracking-wider uppercase">Menu Favorit</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-pastelBrown">Pilihan Lumpia Mini Bites</h2>
+                        <span class="text-xs font-bold text-orange-500 tracking-wider uppercase">Menu Utama</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-pastelBrown">3 Pilihan Produk Lumpia Mini Bites</h2>
                     </div>
                     <button onclick="switchTab('products')" class="text-sm font-bold text-pastelBrown hover:underline flex items-center gap-1">
-                        Lihat Semua <i class="fa-solid fa-arrow-right text-xs"></i>
+                        Lihat Katalog <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </div>
-                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Dinamis Diisi JS -->
-                </div>
+                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
 
-            <!-- Testimoni Pelanggan -->
+            <!-- Testimonials -->
             <div class="bg-white rounded-3xl p-8 shadow-sm border border-stone-100 space-y-6">
                 <div class="text-center max-w-lg mx-auto">
                     <h2 class="text-2xl font-bold text-pastelBrown">Kata Mereka yang Sudah Coba 💛</h2>
@@ -194,23 +191,17 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-orange-50/50 p-6 rounded-2xl border border-orange-100 space-y-3">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-sm text-stone-700 italic">"Garing banget kulit lumpianya, isian ubi ungunya manis pas dan nagih! Harganya murah cuma Rp 7.000."</p>
+                        <div class="flex text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-sm text-stone-700 italic">"Garing banget kulit lumpianya, isian ubi ungunya manis pas dan nagih! Harganya cuma Rp 7.000."</p>
                         <span class="block text-xs font-bold text-pastelBrown">- Kak Sinta, Jakarta</span>
                     </div>
                     <div class="bg-orange-50/50 p-6 rounded-2xl border border-orange-100 space-y-3">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
+                        <div class="flex text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         <p class="text-sm text-stone-700 italic">"Paling suka varian mix! Bisa nyobain semua rasa dalam satu porsi. Ukurannya pas buat nyemil."</p>
                         <span class="block text-xs font-bold text-pastelBrown">- Kak Rizky, Bandung</span>
                     </div>
                     <div class="bg-orange-50/50 p-6 rounded-2xl border border-orange-100 space-y-3">
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
+                        <div class="flex text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         <p class="text-sm text-stone-700 italic">"Pengiriman cepat, admin ramah, pesen lewat WhatsApp 087814384640 langsung diproses. Recommended!"</p>
                         <span class="block text-xs font-bold text-pastelBrown">- Kak Dinda, Depok</span>
                     </div>
@@ -218,11 +209,12 @@
             </div>
         </section>
 
+        <!-- PRODUCTS TAB -->
         <section id="tab-products" class="space-y-8 hide">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-6 rounded-3xl shadow-sm border border-stone-100">
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-bold text-pastelBrown">Katalog Produk Bites Co</h1>
-                    <p class="text-stone-500 text-sm">Pilih 3 varian Lumpia Mini Bites lezat seharga Rp 7.000 per porsi.</p>
+                    <p class="text-stone-500 text-sm">Pilih 3 varian Lumpia Mini Bites lezat dengan opsi pilihan rasa & topping seharga Rp 7.000 per produk.</p>
                 </div>
                 <div class="flex items-center gap-3 w-full md:w-auto">
                     <div class="relative flex-grow md:w-64">
@@ -232,22 +224,14 @@
                 </div>
             </div>
 
-            <!-- Daftar Produk Grid -->
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Diisi oleh JS -->
-            </div>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
+        <!-- CART TAB -->
         <section id="tab-cart" class="space-y-8 hide">
             <h1 class="text-2xl sm:text-3xl font-bold text-pastelBrown">Keranjang Belanja Kamu 🛒</h1>
-            
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Daftar Item Keranjang -->
-                <div class="lg:col-span-2 space-y-4" id="cart-items-container">
-                    <!-- Diisi JS -->
-                </div>
-
-                <!-- Ringkasan Checkout WhatsApp -->
+                <div class="lg:col-span-2 space-y-4" id="cart-items-container"></div>
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 space-y-6 h-fit">
                     <h2 class="text-xl font-bold text-pastelBrown">Ringkasan Pesanan</h2>
                     <div class="space-y-3 text-sm border-b border-stone-100 pb-4">
@@ -269,7 +253,6 @@
                         <span id="summary-total-price" class="text-pastelBrown">Rp 0</span>
                     </div>
 
-                    <!-- Form Data Pemesan -->
                     <div class="space-y-3 pt-2">
                         <label class="block text-xs font-bold text-stone-600">Nama Penerima</label>
                         <input type="text" id="checkout-name" placeholder="cth: Kak Sarah" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-pastelBrown">
@@ -289,6 +272,7 @@
             </div>
         </section>
 
+        <!-- ORDERS TAB -->
         <section id="tab-orders" class="space-y-8 hide">
             <div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border border-stone-100">
                 <div>
@@ -299,12 +283,10 @@
                     <i class="fa-solid fa-rotate mr-1"></i> Refresh
                 </button>
             </div>
-
-            <div id="orders-container" class="space-y-4">
-                <!-- Diisi JS -->
-            </div>
+            <div id="orders-container" class="space-y-4"></div>
         </section>
 
+        <!-- ACCOUNT TAB -->
         <section id="tab-account" class="space-y-8 hide">
             <div class="bg-white rounded-3xl p-8 shadow-sm border border-stone-100 space-y-6">
                 <div class="flex flex-col sm:flex-row items-center gap-6 border-b border-stone-100 pb-6">
@@ -313,15 +295,14 @@
                     </div>
                     <div class="text-center sm:text-left">
                         <h1 id="profile-name-display" class="text-2xl font-bold text-pastelBrown">Bites Co Store</h1>
-                        <p class="text-stone-500 text-sm">Official Web Store Lumpia Mini Bites (Rp 7.000 / porsi)</p>
+                        <p class="text-stone-500 text-sm">Official Web Store Lumpia Mini Bites (Rp 7.000 / produk)</p>
                         <div class="mt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
                             <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-bold">WhatsApp: 087814384640</span>
-                            <span class="bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full font-bold">Instagram: @bitesco.official</span>
+                            <a href="https://instagram.com" target="_blank" class="bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full font-bold hover:underline">Instagram: @bitesco.official</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pilihan Mode Pengguna -->
                 <div class="space-y-4">
                     <h3 class="font-bold text-stone-700 text-lg">Pilih Mode Tampilan</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -354,7 +335,7 @@
                 </div>
             </div>
 
-            <!-- SELLER DASHBOARD WRAPPER -->
+            <!-- SELLER DASHBOARD -->
             <div id="seller-dashboard-wrapper" class="space-y-8 hide">
                 <div class="bg-pastelCream/60 rounded-3xl p-6 sm:p-8 border border-orange-200 space-y-6">
                     <div class="flex justify-between items-center">
@@ -367,7 +348,6 @@
                         </button>
                     </div>
 
-                    <!-- Statistik Sederhana -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="bg-white p-5 rounded-2xl shadow-sm border border-orange-100">
                             <p class="text-xs text-stone-500 font-bold uppercase">Total Pesanan Masuk</p>
@@ -383,20 +363,14 @@
                         </div>
                     </div>
 
-                    <!-- Daftar Pesanan Masuk Penjual -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 space-y-4">
                         <h3 class="text-lg font-bold text-pastelBrown">Daftar Pesanan Masuk (Seller View)</h3>
-                        <div id="seller-orders-list" class="space-y-3">
-                            <!-- Diisi JS -->
-                        </div>
+                        <div id="seller-orders-list" class="space-y-3"></div>
                     </div>
 
-                    <!-- Kelola Produk Penjual -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 space-y-4">
                         <h3 class="text-lg font-bold text-pastelBrown">Manajemen Produk Jualan (Harga Rp 7.000)</h3>
-                        <div id="seller-products-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            <!-- Diisi JS -->
-                        </div>
+                        <div id="seller-products-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
                     </div>
                 </div>
             </div>
@@ -424,6 +398,10 @@
                 <div>
                     <label class="block text-xs font-bold text-stone-600">URL Gambar</label>
                     <input type="text" id="modal-image" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-pastelBrown" placeholder="cth: image_935716.jpg">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-600">Opsi Pilihan (Pisahkan dengan koma)</label>
+                    <input type="text" id="modal-options" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-pastelBrown" placeholder="cth: Coklat Lumer, Keju Susu, Original">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-stone-600">Deskripsi Singkat</label>
@@ -462,27 +440,30 @@
     </footer>
 
     <script>
-        // Data Produk Default (3 Produk: Pisang, Ubi dengan image_935716.jpg, Mix dengan image_935719.jpg, Harga Rp 7.000)
+        // Data Produk Default (3 Produk: Pisang, Ubi dengan image_935716.jpg, Mix dengan image_935719.jpg, Harga Rp 7.000, lengkap opsi pilihan)
         let defaultProducts = [
             {
                 id: 1,
-                name: "Lumpia Mini Bites Isi Pisang",
+                name: "Lumpia Pisang Bites",
                 price: 7000,
                 image: "https://placehold.co/400x400/FFF5E4/A0616A?text=Pisang+Bites",
-                desc: "Lumpia mini renyah dengan isian pisang manis legit berpadu cokelat lumer."
+                options: ["Coklat Lumer", "Keju Susu", "Original"],
+                desc: "Lumpia mini renyah dengan isian pisang manis legit dan lumer."
             },
             {
                 id: 2,
-                name: "Lumpia Mini Bites Isi Ubi",
+                name: "Lumpia Ubi Bites",
                 price: 7000,
                 image: "image_935716.jpg",
+                options: ["Extra Keju", "Cokelat Taro", "Original"],
                 desc: "Lumpia mini isi ubi ungu lembut dan manis alami yang sangat gurih di setiap gigitan."
             },
             {
                 id: 3,
-                name: "Lumpia Mini Bites Isi Mix",
+                name: "Lumpia Mix Bites",
                 price: 7000,
                 image: "image_935719.jpg",
+                options: ["Mix Pisang-Ubi", "Mix All Varian"],
                 desc: "Kombinasi komplit aneka rasa pilihan dalam satu porsi mix bites yang nikmat."
             }
         ];
@@ -496,7 +477,7 @@
                 customerName: 'Kak Rina',
                 phone: '081298765432',
                 address: 'Jl. Melati No. 5',
-                items: [{name: 'Lumpia Mini Bites Isi Mix', price: 7000, qty: 2}],
+                items: [{name: 'Lumpia Mix Bites', selectedOption: 'Mix All Varian', price: 7000, qty: 2}],
                 total: 14000,
                 status: 'Selesai',
                 date: '01 Okt 2026, 14:00'
@@ -510,7 +491,7 @@
             renderAll();
         };
 
-        // Fungsi Navigasi Tab (dibuat di scope global agar bisa diakses HTML onclick)
+        // Fungsi Navigasi Tab
         window.switchTab = function(tabId) {
             const tabs = ['home', 'products', 'cart', 'orders', 'account'];
             tabs.forEach(t => {
@@ -538,7 +519,6 @@
             if (menu) menu.classList.toggle('hidden');
         }
 
-        // Render Semua Komponen
         function renderAll() {
             renderFeaturedProducts();
             renderProductsCatalog();
@@ -556,27 +536,42 @@
             if (badge2) badge2.innerText = totalQty;
         }
 
-        // 1 & 2. Render Produk di Beranda & Katalog
         function renderFeaturedProducts() {
             const container = document.getElementById('featured-products-grid');
             if (!container) return;
-            container.innerHTML = products.slice(0, 3).map(p => `
-                <div class="bg-white rounded-3xl p-5 shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-md transition-all">
-                    <div>
-                        <div class="w-full h-48 rounded-2xl overflow-hidden bg-orange-50 mb-4 relative">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/FFF5E4/A0616A?text=Bites+Co'">
-                            <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-pastelBrown text-xs font-bold px-2.5 py-1 rounded-full shadow">Rp ${p.price.toLocaleString()}</span>
+            container.innerHTML = products.slice(0, 3).map(p => {
+                const optionSelectId = `feat-opt-${p.id}`;
+                const optionsHtml = (p.options && p.options.length > 0) ? `
+                    <div class="mt-3">
+                        <label class="block text-xs font-bold text-stone-600 mb-1">Pilih Opsi / Topping:</label>
+                        <select id="${optionSelectId}" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-pastelBrown">
+                            ${p.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                        </select>
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="bg-white rounded-3xl p-5 shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-md transition-all">
+                        <div>
+                            <div class="w-full h-48 rounded-2xl overflow-hidden bg-orange-50 mb-4 relative">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/FFF5E4/A0616A?text=Bites+Co'">
+                                <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-pastelBrown text-xs font-bold px-2.5 py-1 rounded-full shadow">Rp ${p.price.toLocaleString()}</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-stone-800">${p.name}</h3>
+                            <p class="text-xs text-stone-500 mt-1 line-clamp-2">${p.desc}</p>
+                            ${optionsHtml}
                         </div>
-                        <h3 class="font-bold text-lg text-stone-800">${p.name}</h3>
-                        <p class="text-xs text-stone-500 mt-1 line-clamp-2">${p.desc}</p>
+                        <div class="mt-6 flex gap-2">
+                            <button onclick="addToCartWithOptions(${p.id}, '${optionSelectId}')" class="flex-1 bg-pastelPeach hover:bg-orange-200 text-pastelBrown font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> + Keranjang
+                            </button>
+                            <button onclick="buyNowWithOptions(${p.id}, '${optionSelectId}')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1">
+                                <i class="fa-brands fa-whatsapp"></i> Beli WA
+                            </button>
+                        </div>
                     </div>
-                    <div class="mt-6">
-                        <button onclick="addToCart(${p.id})" class="w-full bg-pastelPeach hover:bg-orange-200 text-pastelBrown font-bold py-2.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i> + Tambah ke Keranjang
-                        </button>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function renderProductsCatalog() {
@@ -590,49 +585,83 @@
                 return;
             }
 
-            container.innerHTML = filtered.map(p => `
-                <div class="bg-white rounded-3xl p-5 shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-md transition-all">
-                    <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-orange-50 mb-4 relative">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/FFF5E4/A0616A?text=Bites+Co'">
-                            <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-pastelBrown text-xs font-bold px-2.5 py-1 rounded-full shadow">Rp ${p.price.toLocaleString()}</span>
+            container.innerHTML = filtered.map(p => {
+                const optionSelectId = `cat-opt-${p.id}`;
+                const optionsHtml = (p.options && p.options.length > 0) ? `
+                    <div class="mt-3">
+                        <label class="block text-xs font-bold text-stone-600 mb-1">Pilih Opsi / Topping:</label>
+                        <select id="${optionSelectId}" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-pastelBrown">
+                            ${p.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                        </select>
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="bg-white rounded-3xl p-5 shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-md transition-all">
+                        <div>
+                            <div class="w-full h-52 rounded-2xl overflow-hidden bg-orange-50 mb-4 relative">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/FFF5E4/A0616A?text=Bites+Co'">
+                                <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-pastelBrown text-xs font-bold px-2.5 py-1 rounded-full shadow">Rp ${p.price.toLocaleString()}</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-stone-800">${p.name}</h3>
+                            <p class="text-xs text-stone-500 mt-1">${p.desc}</p>
+                            ${optionsHtml}
                         </div>
-                        <h3 class="font-bold text-lg text-stone-800">${p.name}</h3>
-                        <p class="text-xs text-stone-500 mt-1">${p.desc}</p>
+                        <div class="mt-6 flex gap-2">
+                            <button onclick="addToCartWithOptions(${p.id}, '${optionSelectId}')" class="flex-1 bg-pastelBrown hover:bg-[#854B54] text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> + Keranjang
+                            </button>
+                            <button onclick="buyNowWithOptions(${p.id}, '${optionSelectId}')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1">
+                                <i class="fa-brands fa-whatsapp"></i> Beli WA
+                            </button>
+                        </div>
                     </div>
-                    <div class="mt-6">
-                        <button onclick="addToCart(${p.id})" class="w-full bg-pastelBrown hover:bg-[#854B54] text-white font-bold py-2.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow">
-                            <i class="fa-solid fa-cart-plus"></i> + Tambah ke Keranjang
-                        </button>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         window.filterProducts = function() {
             renderProductsCatalog();
         }
 
-        // 3. Logika Keranjang & Checkout
-        window.addToCart = function(productId) {
+        window.addToCartWithOptions = function(productId, selectId) {
             const prod = products.find(p => p.id === productId);
             if (!prod) return;
-            const existing = cart.find(item => item.id === productId);
+            const selectEl = document.getElementById(selectId);
+            const selectedOption = selectEl ? selectEl.value : (prod.options ? prod.options[0] : 'Standard');
+
+            const existing = cart.find(item => item.id === productId && item.selectedOption === selectedOption);
             if (existing) {
                 existing.qty += 1;
             } else {
-                cart.push({ ...prod, qty: 1 });
+                cart.push({ ...prod, selectedOption, qty: 1 });
             }
             saveAndRenderCart();
-            showToast(`Berhasil menambahkan ${prod.name} ke keranjang!`);
+            showToast(`Berhasil menambahkan ${prod.name} (${selectedOption}) ke keranjang!`);
         }
 
-        window.updateQty = function(productId, delta) {
-            const item = cart.find(i => i.id === productId);
+        window.buyNowWithOptions = function(productId, selectId) {
+            const prod = products.find(p => p.id === productId);
+            if (!prod) return;
+            const selectEl = document.getElementById(selectId);
+            const selectedOption = selectEl ? selectEl.value : (prod.options ? prod.options[0] : 'Standard');
+
+            const message = `Halo Bites Co (087814384640), saya ingin memesan secara langsung:\n\n` +
+                            `- Produk: *${prod.name}*\n` +
+                            `- Varian/Opsi: *${selectedOption}*\n` +
+                            `- Harga: *Rp ${prod.price.toLocaleString()}*\n` +
+                            `- Jumlah: *1 porsi*\n\n` +
+                            `Mohon diproses ya kak. Terima kasih!`;
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/6287814384640?text=${encoded}`, '_blank');
+        }
+
+        window.updateQty = function(productId, selectedOption, delta) {
+            const item = cart.find(i => i.id === productId && i.selectedOption === selectedOption);
             if (!item) return;
             item.qty += delta;
             if (item.qty <= 0) {
-                cart = cart.filter(i => i.id !== productId);
+                cart = cart.filter(i => !(i.id === productId && i.selectedOption === selectedOption));
             }
             saveAndRenderCart();
         }
@@ -676,16 +705,17 @@
                             <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover" onerror="this.src='https://placehold.co/100x100/FFF5E4/A0616A?text=Bites'">
                             <div>
                                 <h4 class="font-bold text-stone-800 text-sm sm:text-base">${item.name}</h4>
+                                <p class="text-xs text-orange-600 font-bold">Opsi: ${item.selectedOption}</p>
                                 <p class="text-xs text-pastelBrown font-semibold mt-0.5">Rp ${item.price.toLocaleString()} x ${item.qty}</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="flex items-center bg-stone-50 border border-stone-200 rounded-xl overflow-hidden">
-                                <button onclick="updateQty(${item.id}, -1)" class="px-3 py-1 text-stone-600 hover:bg-stone-200 font-bold">-</button>
+                                <button onclick="updateQty(${item.id}, '${item.selectedOption}', -1)" class="px-3 py-1 text-stone-600 hover:bg-stone-200 font-bold">-</button>
                                 <span class="px-3 py-1 text-xs font-bold text-stone-700">${item.qty}</span>
-                                <button onclick="updateQty(${item.id}, 1)" class="px-3 py-1 text-stone-600 hover:bg-stone-200 font-bold">+</button>
+                                <button onclick="updateQty(${item.id}, '${item.selectedOption}', 1)" class="px-3 py-1 text-stone-600 hover:bg-stone-200 font-bold">+</button>
                             </div>
-                            <button onclick="updateQty(${item.id}, -${item.qty})" class="text-red-400 hover:text-red-600 p-2 text-sm"><i class="fa-solid fa-trash"></i></button>
+                            <button onclick="updateQty(${item.id}, '${item.selectedOption}', -${item.qty})" class="text-red-400 hover:text-red-600 p-2 text-sm"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
                 `;
@@ -711,7 +741,7 @@
             }
 
             let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            let itemsText = cart.map(i => `- ${i.name} (${i.qty}x) : Rp ${(i.price * i.qty).toLocaleString()}`).join('\n');
+            let itemsText = cart.map(i => `- ${i.name} [${i.selectedOption}] (${i.qty}x) : Rp ${(i.price * i.qty).toLocaleString()}`).join('\n');
 
             let message = `Halo Bites Co (087814384640), saya ingin memesan:\n\n` +
                           `*Nama Pemesan:* ${name}\n` +
@@ -721,7 +751,6 @@
                           `*Total Pembayaran:* Rp ${subtotal.toLocaleString()}\n\n` +
                           `Mohon segera diproses ya kak. Terima kasih!`;
 
-            // Simpan ke riwayat pesanan local
             const newOrder = {
                 id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
                 customerName: name,
@@ -735,11 +764,9 @@
             orders.unshift(newOrder);
             localStorage.setItem('bites_orders_7k', JSON.stringify(orders));
 
-            // Kosongkan keranjang
             cart = [];
             saveAndRenderCart();
 
-            // Buka WhatsApp
             const encoded = encodeURIComponent(message);
             window.open(`https://wa.me/6287814384640?text=${encoded}`, '_blank');
             
@@ -747,7 +774,6 @@
             showToast("Pesanan berhasil dibuat & dikirim ke WhatsApp 087814384640!");
         }
 
-        // 4. Riwayat Pesanan
         window.loadOrders = function() {
             renderOrders();
             showToast("Riwayat pesanan diperbarui");
@@ -786,7 +812,7 @@
                             <p class="text-xs text-stone-500">Alamat: ${ord.address}</p>
                         </div>
                         <div class="bg-orange-50/50 p-4 rounded-2xl space-y-2">
-                            ${ord.items.map(i => `<div class="flex justify-between text-xs text-stone-700"><span>${i.name} (${i.qty}x)</span><span class="font-bold">Rp ${(i.price * i.qty).toLocaleString()}</span></div>`).join('')}
+                            ${ord.items.map(i => `<div class="flex justify-between text-xs text-stone-700"><span>${i.name} [${i.selectedOption}] (${i.qty}x)</span><span class="font-bold">Rp ${(i.price * i.qty).toLocaleString()}</span></div>`).join('')}
                         </div>
                         <div class="flex justify-between items-center pt-2">
                             <span class="text-xs font-bold text-stone-500">Total Pembayaran</span>
@@ -797,7 +823,6 @@
             }).join('');
         }
 
-        // 5 & 6. Akun & Mode Penjual / Pembeli
         window.setRole = function(role, notify = true) {
             currentRole = role;
             localStorage.setItem('bites_role_7k', role);
@@ -841,7 +866,6 @@
             if (statRev) statRev.innerText = `Rp ${totalRevenue.toLocaleString()}`;
             if (statProd) statProd.innerText = products.length;
 
-            // Daftar Pesanan Seller
             const sellerOrdersList = document.getElementById('seller-orders-list');
             if (sellerOrdersList) {
                 if (orders.length === 0) {
@@ -866,7 +890,6 @@
                 }
             }
 
-            // Daftar Produk Seller
             const sellerProductsList = document.getElementById('seller-products-list');
             if (sellerProductsList) {
                 sellerProductsList.innerHTML = products.map(p => `
@@ -875,6 +898,7 @@
                             <img src="${p.image}" class="w-full h-32 object-cover rounded-xl mb-3" onerror="this.src='https://placehold.co/300x300/FFF5E4/A0616A?text=Bites'">
                             <h4 class="font-bold text-stone-800 text-sm">${p.name}</h4>
                             <p class="text-xs text-pastelBrown font-bold">Rp ${p.price.toLocaleString()}</p>
+                            <p class="text-[11px] text-stone-500 mt-1">Opsi: ${(p.options || []).join(', ')}</p>
                         </div>
                         <div class="flex gap-2 mt-4">
                             <button onclick="openEditProductModal(${p.id})" class="flex-1 bg-white border border-stone-300 hover:bg-stone-100 text-stone-700 py-1.5 rounded-lg text-xs font-bold">Edit</button>
@@ -896,13 +920,13 @@
             }
         }
 
-        // Manajemen Tambah/Edit Produk oleh Penjual
         window.openAddProductModal = function() {
             document.getElementById('modal-title').innerText = 'Tambah Produk Baru';
             document.getElementById('edit-product-id').value = '';
             document.getElementById('modal-name').value = '';
             document.getElementById('modal-price').value = 7000;
             document.getElementById('modal-image').value = '';
+            document.getElementById('modal-options').value = 'Original, Cokelat, Keju';
             document.getElementById('modal-desc').value = '';
             document.getElementById('product-modal').classList.remove('hidden');
         }
@@ -915,6 +939,7 @@
             document.getElementById('modal-name').value = prod.name;
             document.getElementById('modal-price').value = prod.price;
             document.getElementById('modal-image').value = prod.image;
+            document.getElementById('modal-options').value = (prod.options || []).join(', ');
             document.getElementById('modal-desc').value = prod.desc;
             document.getElementById('product-modal').classList.remove('hidden');
         }
@@ -928,6 +953,8 @@
             const name = document.getElementById('modal-name').value.trim();
             const price = parseInt(document.getElementById('modal-price').value) || 7000;
             const image = document.getElementById('modal-image').value.trim() || 'https://placehold.co/400x400/FFF5E4/A0616A?text=Bites';
+            const optionsInput = document.getElementById('modal-options').value.trim();
+            const options = optionsInput ? optionsInput.split(',').map(s => s.trim()).filter(Boolean) : ['Original'];
             const desc = document.getElementById('modal-desc').value.trim();
 
             if (!name) {
@@ -941,16 +968,16 @@
                     prod.name = name;
                     prod.price = price;
                     prod.image = image;
+                    prod.options = options;
                     prod.desc = desc;
                     showToast("Produk berhasil diperbarui!");
                 }
             } else {
                 const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-                products.push({ id: newId, name, price, image, desc });
+                products.push({ id: newId, name, price, image, options, desc });
                 showToast("Produk baru berhasil ditambahkan!");
             }
 
             localStorage.setItem('bites_products_7k', JSON.stringify(products));
             closeProductModal();
             renderAll();
-        }
