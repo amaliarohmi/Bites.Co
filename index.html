@@ -120,7 +120,7 @@
                         Camilan Seru <br>Lumpia Mini Bites 🥟
                     </h1>
                     <p class="text-stone-600 text-base sm:text-lg">
-                        Nikmati kelezatan lumpia mini bites buatan rumah dengan isian lumer di mulut. Pilihan rasa Pisang, Ubi Ungu, dan Mix Varian Favorit!
+                        Nikmati kelezatan lumpia mini bites buatan rumah dengan isian lumer di mulut. Pilihan rasa Pisang, Ubi, dan Mix Varian Favorit seharga Rp 7.000!
                     </p>
                     <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
                         <button onclick="switchTab('products')" class="bg-pastelBrown hover:bg-[#854B54] text-white px-8 py-3.5 rounded-full font-bold shadow-lg transform hover:-translate-y-0.5 transition-all flex items-center gap-2">
@@ -166,8 +166,8 @@
                         <i class="fa-solid fa-wallet"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold text-stone-800">Harga Spesial</h3>
-                        <p class="text-xs text-stone-500">Hanya Rp 7.000 per porsi mini bites</p>
+                        <h3 class="font-bold text-stone-800">Harga Spesial Rp 7.000</h3>
+                        <p class="text-xs text-stone-500">Nikmat, hemat, dan bikin ketagihan</p>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                         <div class="flex text-yellow-400 text-sm">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-sm text-stone-700 italic">"Garing banget kulit lumpianya, isian ubi ungunya manis pas dan nagih! Harganya murah cuma 7rb."</p>
+                        <p class="text-sm text-stone-700 italic">"Garing banget kulit lumpianya, isian ubi ungunya manis pas dan nagih! Harganya murah cuma Rp 7.000."</p>
                         <span class="block text-xs font-bold text-pastelBrown">- Kak Sinta, Jakarta</span>
                     </div>
                     <div class="bg-orange-50/50 p-6 rounded-2xl border border-orange-100 space-y-3">
@@ -319,7 +319,7 @@
                     </div>
                     <div class="text-center sm:text-left">
                         <h1 id="profile-name-display" class="text-2xl font-bold text-pastelBrown">Bites Co Store</h1>
-                        <p class="text-stone-500 text-sm">Official Web Store Lumpia Mini Bites</p>
+                        <p class="text-stone-500 text-sm">Official Web Store Lumpia Mini Bites (Rp 7.000 / porsi)</p>
                         <div class="mt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
                             <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-bold">WhatsApp: 087814384640</span>
                             <span class="bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full font-bold">Instagram: @bitesco.official</span>
@@ -518,8 +518,8 @@
             renderAll();
         };
 
-        // Fungsi Navigasi Tab
-        function switchTab(tabId) {
+        // Fungsi Navigasi Tab (dibuat di scope global agar bisa diakses HTML onclick)
+        window.switchTab = function(tabId) {
             const tabs = ['home', 'products', 'cart', 'orders', 'account'];
             tabs.forEach(t => {
                 const el = document.getElementById(`tab-${t}`);
@@ -541,9 +541,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function toggleMobileMenu() {
+        window.toggleMobileMenu = function() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
         // Render Semua Komponen
@@ -558,8 +558,10 @@
 
         function updateBadges() {
             const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-badge').innerText = totalQty;
-            document.getElementById('cart-badge-mobile').innerText = totalQty;
+            const badge1 = document.getElementById('cart-badge');
+            const badge2 = document.getElementById('cart-badge-mobile');
+            if (badge1) badge1.innerText = totalQty;
+            if (badge2) badge2.innerText = totalQty;
         }
 
         // 1 & 2. Render Produk di Beranda & Katalog
@@ -615,12 +617,12 @@
             `).join('');
         }
 
-        function filterProducts() {
+        window.filterProducts = function() {
             renderProductsCatalog();
         }
 
         // 3. Logika Keranjang & Checkout
-        function addToCart(productId) {
+        window.addToCart = function(productId) {
             const prod = products.find(p => p.id === productId);
             if (!prod) return;
             const existing = cart.find(item => item.id === productId);
@@ -633,7 +635,7 @@
             showToast(`Berhasil menambahkan ${prod.name} ke keranjang!`);
         }
 
-        function updateQty(productId, delta) {
+        window.updateQty = function(productId, delta) {
             const item = cart.find(i => i.id === productId);
             if (!item) return;
             item.qty += delta;
@@ -702,7 +704,7 @@
             document.getElementById('summary-total-price').innerText = `Rp ${subtotal.toLocaleString()}`;
         }
 
-        function checkoutWhatsApp() {
+        window.checkoutWhatsApp = function() {
             if (cart.length === 0) {
                 showToast("Keranjang belanja masih kosong!", "error");
                 return;
@@ -754,6 +756,11 @@
         }
 
         // 4. Riwayat Pesanan
+        window.loadOrders = function() {
+            renderOrders();
+            showToast("Riwayat pesanan diperbarui");
+        }
+
         function renderOrders() {
             const container = document.getElementById('orders-container');
             if (!container) return;
@@ -799,7 +806,7 @@
         }
 
         // 5 & 6. Akun & Mode Penjual / Pembeli
-        function setRole(role, notify = true) {
+        window.setRole = function(role, notify = true) {
             currentRole = role;
             localStorage.setItem('bites_role_7k', role);
 
@@ -811,18 +818,18 @@
             const roleLabel = document.getElementById('nav-role-label');
 
             if (role === 'buyer') {
-                buyerCard.className = "cursor-pointer border-2 border-pastelBrown bg-orange-50/50 p-6 rounded-2xl transition-all flex items-center justify-between";
-                sellerCard.className = "cursor-pointer border-2 border-stone-200 bg-white p-6 rounded-2xl transition-all flex items-center justify-between";
-                checkBuyer.className = "fa-solid fa-circle-check text-pastelBrown text-xl";
-                checkSeller.className = "fa-solid fa-circle-check text-stone-300 text-xl";
+                if (buyerCard) buyerCard.className = "cursor-pointer border-2 border-pastelBrown bg-orange-50/50 p-6 rounded-2xl transition-all flex items-center justify-between";
+                if (sellerCard) sellerCard.className = "cursor-pointer border-2 border-stone-200 bg-white p-6 rounded-2xl transition-all flex items-center justify-between";
+                if (checkBuyer) checkBuyer.className = "fa-solid fa-circle-check text-pastelBrown text-xl";
+                if (checkSeller) checkSeller.className = "fa-solid fa-circle-check text-stone-300 text-xl";
                 if (sellerWrapper) sellerWrapper.classList.add('hide');
                 if (roleLabel) roleLabel.innerText = "Akun (Pembeli)";
                 if (notify) showToast("Berpindah ke Mode Pembeli");
             } else {
-                sellerCard.className = "cursor-pointer border-2 border-pastelBrown bg-orange-50/50 p-6 rounded-2xl transition-all flex items-center justify-between";
-                buyerCard.className = "cursor-pointer border-2 border-stone-200 bg-white p-6 rounded-2xl transition-all flex items-center justify-between";
-                checkSeller.className = "fa-solid fa-circle-check text-pastelBrown text-xl";
-                checkBuyer.className = "fa-solid fa-circle-check text-stone-300 text-xl";
+                if (sellerCard) sellerCard.className = "cursor-pointer border-2 border-pastelBrown bg-orange-50/50 p-6 rounded-2xl transition-all flex items-center justify-between";
+                if (buyerCard) buyerCard.className = "cursor-pointer border-2 border-stone-200 bg-white p-6 rounded-2xl transition-all flex items-center justify-between";
+                if (checkSeller) checkSeller.className = "fa-solid fa-circle-check text-pastelBrown text-xl";
+                if (checkBuyer) checkBuyer.className = "fa-solid fa-circle-check text-stone-300 text-xl";
                 if (sellerWrapper) sellerWrapper.classList.remove('hide');
                 if (roleLabel) roleLabel.innerText = "Akun (Penjual)";
                 if (notify) showToast("Berpindah ke Dashboard Penjual");
@@ -831,7 +838,6 @@
         }
 
         function renderSellerDashboard() {
-            // Statistik
             const totalOrders = orders.length;
             const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
             
@@ -887,7 +893,7 @@
             }
         }
 
-        function updateOrderStatus(orderId, newStatus) {
+        window.updateOrderStatus = function(orderId, newStatus) {
             const ord = orders.find(o => o.id === orderId);
             if (ord) {
                 ord.status = newStatus;
@@ -899,7 +905,7 @@
         }
 
         // Manajemen Tambah/Edit Produk oleh Penjual
-        function openAddProductModal() {
+        window.openAddProductModal = function() {
             document.getElementById('modal-title').innerText = 'Tambah Produk Baru';
             document.getElementById('edit-product-id').value = '';
             document.getElementById('modal-name').value = '';
@@ -909,7 +915,7 @@
             document.getElementById('product-modal').classList.remove('hidden');
         }
 
-        function openEditProductModal(id) {
+        window.openEditProductModal = function(id) {
             const prod = products.find(p => p.id === id);
             if (!prod) return;
             document.getElementById('modal-title').innerText = 'Edit Produk';
@@ -921,11 +927,11 @@
             document.getElementById('product-modal').classList.remove('hidden');
         }
 
-        function closeProductModal() {
+        window.closeProductModal = function() {
             document.getElementById('product-modal').classList.add('hidden');
         }
 
-        function saveProduct() {
+        window.saveProduct = function() {
             const editId = document.getElementById('edit-product-id').value;
             const name = document.getElementById('modal-name').value.trim();
             const price = parseInt(document.getElementById('modal-price').value) || 7000;
@@ -938,7 +944,6 @@
             }
 
             if (editId) {
-                // Edit
                 const prod = products.find(p => p.id == editId);
                 if (prod) {
                     prod.name = name;
@@ -948,7 +953,6 @@
                     showToast("Produk berhasil diperbarui!");
                 }
             } else {
-                // Tambah baru
                 const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
                 products.push({ id: newId, name, price, image, desc });
                 showToast("Produk baru berhasil ditambahkan!");
@@ -958,5 +962,3 @@
             closeProductModal();
             renderAll();
         }
-
-        function deleteProduct(id) {
